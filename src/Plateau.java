@@ -38,15 +38,13 @@ public class Plateau {
     
     private Emplacement choisirPlaceVide(int x, int y) {
         Emplacement retour;
-        
-        if (cartes[x][y] == null) {
-            return null;
+        for(int i = 0; i <= nbPlacesVides; i++) {
+            if (placesVides[i] == cartes[x][y]) {
+                retour = cartes[x][y];
+                retirerPlaceVide(i);
+                return retour;
+            }
         }
-        else {
-            retour = cartes[x][y];
-            
-            nbPlacesVides --;
-            return retour;
-        }
+        return null;
     }
 }
