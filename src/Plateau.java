@@ -35,5 +35,19 @@ public class Plateau {
             return retour;
         }
     }
+    public void distribuer()
+    {
+         for(int i=0;i<8;i++)
+        {
+            if (cartes[i] == null)
+            {
+                cartes[i][0]= choisirPlaceVide();
+                poserCarte(i, cartes[i][0]);
+                cartes[i][1]= choisirPlaceVide();
+                poserCarte(i, cartes[i][1]);
+            }
+        }
+   
+    }
 
 }
