@@ -4,18 +4,21 @@ import java.util.Random;
  * Created by Madjid on 08/02/2017.
  */
 public class Plateau {
+    // ATTRIBUTS
     Emplacement[][] cartes;
     int[] nbCartes;
     Emplacement[] placesVides;
     int nbPlacesVides;
 
+    // CONSTRUCTEURS
     public Plateau() {
         Emplacement[][] cartes = new Emplacement[8][2];
         int[] nbCartes = new int[8];
         Emplacement[] placesVides = new Emplacement[16];
         int nbPlacesVides = 16;
     }
-
+    
+    // METHODES
     private void retirerPlaceVide(int i) {
         placesVides[i] = null;
         nbPlacesVides --;
