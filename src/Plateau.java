@@ -35,5 +35,30 @@ public class Plateau {
             return retour;
         }
     }
+    
+    /* Pierre */
+    private boolean poserCarte(int carte, Emplacement pos) {
+        
+        cartes
+                nbCartes
+        
+        if(pos == null){
+            return false;
+        }
+        else{
+            return true;
+        }
+        
+        
+    }
+    
+    /* Pierre */
+    private boolean poserCarte(int carte, int x, int y) {
+        
+        
+        
+        
+        return false;
+    }
 
 }
