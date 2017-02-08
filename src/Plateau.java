@@ -16,6 +16,12 @@ public class Plateau {
         int nbPlacesVides = 16;
     }
 
+    private void retirerPlaceVide(int i) {
+        placesVides[i] = null;
+        nbPlacesVides --;
+
+    }
+
     private Emplacement choisirPlaceVide() {
         Random rnd = new Random();
         int a = rnd.nextInt(16);
@@ -25,8 +31,7 @@ public class Plateau {
         }
         else {
             retour = placesVides[a];
-            placesVides[a] = null;
-            nbPlacesVides --;
+            retirerPlaceVide(a);
             return retour;
         }
     }
