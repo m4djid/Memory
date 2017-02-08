@@ -24,10 +24,13 @@ public class Plateau {
     }  
     
     // METHODES
-    private void retirerPlaceVide(int i){
+    private boolean poserCarte(int carte, Emplacement pos){
+        
+        if(pos == null){
+            
+        }
         
     }
-    
     
     // GETTERS
 }
