@@ -20,12 +20,13 @@ public class Plateau {
         Emplacement[][] cartes = new Emplacement[8][2];
         int[] nbCartes = new int[2];
         Emplacement[] placesVides = new Emplacement[16];
-        int nbPlacesvides = 16;
-        
-    }
-
+        int nbPlacesvides = 16;  
+    }  
     
     // METHODES
+    private void retirerPlaceVide(int i){
+        
+    }
     
     
     // GETTERS
