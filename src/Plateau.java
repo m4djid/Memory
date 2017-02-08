@@ -4,6 +4,7 @@ import java.util.Random;
  * Created by Madjid on 08/02/2017.
  */
 public class Plateau {
+    
     // ATTRIBUTS
     Emplacement[][] cartes;
     int[] nbCartes;
@@ -42,13 +43,12 @@ public class Plateau {
     /* Pierre */
     private boolean poserCarte(int carte, Emplacement pos) {
         
-        cartes
-                nbCartes
-        
         if(pos == null){
             return false;
         }
         else{
+            nbCartes[carte] = carte;
+            cartes[pos.getX()][pos.getY()]= pos; 
             return true;
         }
         
