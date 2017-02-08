@@ -16,7 +16,12 @@ public class Plateau {
     private int nbPlacesVides;
     
     // CONSTRUCTEURS
-    
+    public Plateau (){
+        Emplacement[][] cartes = new Emplacement[8][2];
+        int[] nbCartes = new int[2];
+        Emplacement[] placesVides = new Emplacement[16];
+        
+    }
 
     
     // METHODES
