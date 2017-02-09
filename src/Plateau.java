@@ -4,7 +4,7 @@ import java.util.Random;
  * Created by Madjid on 08/02/2017.
  */
 public class Plateau {
-    
+
     // ATTRIBUTS
     Emplacement[][] cartes;
     int[] nbCartes;
@@ -18,11 +18,11 @@ public class Plateau {
         Emplacement[] placesVides = new Emplacement[16];
         int nbPlacesVides = 16;
     }
-    
+
     // METHODES
     private void retirerPlaceVide(int i) {
         placesVides[i] = null;
-        nbPlacesVides --;
+        nbPlacesVides--;
 
     }
 
@@ -32,17 +32,18 @@ public class Plateau {
         Emplacement retour;
         if (placesVides[a] == null) {
             return null;
-        }
-        else {
+        } else {
             retour = placesVides[a];
             retirerPlaceVide(a);
             return retour;
         }
     }
-  
-   private Emplacement choisirPlaceVide(int x, int y) {
+    /*
+    * Author : Paolo
+    */
+    private Emplacement choisirPlaceVide(int x, int y) {
         Emplacement retour;
-        for(int i = 0; i <= nbPlacesVides; i++) {
+        for (int i = 0; i <= nbPlacesVides; i++) {
             if (placesVides[i] == cartes[x][y]) {
                 retour = cartes[x][y];
                 retirerPlaceVide(i);
@@ -52,43 +53,41 @@ public class Plateau {
         return null;
 
     }
-  
-   /* Pierre */
+
+    /*
+    * Author : Pierre
+    */
     private boolean poserCarte(int carte, Emplacement pos) {
-        
-        if(pos == null){
+
+        if (pos == null) {
             return false;
-        }
-        else{
+        } else {
             nbCartes[carte] = carte;
-            cartes[pos.getX()][pos.getY()]= pos; 
+            cartes[pos.getX()][pos.getY()] = pos;
             return true;
         }
-        
-        
+
+
     }
-    
-    /* Pierre */
+
     private boolean poserCarte(int carte, int x, int y) {
-        
-        
-        
-        
+
+
         return false;
     }
 
-
-    public void distribuer()
-    {
-         for(int i=0;i<8;i++)
-        {
-            if (cartes[i] == null)
-            {
-                cartes[i][0]= choisirPlaceVide();
+    /*
+    * Author : Gilles
+    */
+    public void distribuer() {
+        for (int i = 0; i < 8; i++) {
+            if (cartes[i] == null) {
+                cartes[i][0] = choisirPlaceVide();
                 poserCarte(i, cartes[i][0]);
-                cartes[i][1]= choisirPlaceVide();
+                cartes[i][1] = choisirPlaceVide();
                 poserCarte(i, cartes[i][1]);
             }
-         }
+        }
 
+    }
 }
