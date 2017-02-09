@@ -63,6 +63,7 @@ public class Plateau {
             return false;
         } else {
             nbCartes[carte] = carte;
+            retirerPlaceVide(carte);
             cartes[pos.getX()][pos.getY()] = pos;
             return true;
         }
@@ -71,9 +72,14 @@ public class Plateau {
     }
 
     private boolean poserCarte(int carte, int x, int y) {
+        if (cartes[x][y] != null || nbCartes[carte] == carte) {
+            return false;
+        }
+        else {
+            
+            return true;
+        }
 
-
-        return false;
     }
 
     /*
