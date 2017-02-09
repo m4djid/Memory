@@ -1,21 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package memory;
 
 /**
- *
- * @author gilles.wilhelm
+ * @author pierre.vuckovic
  */
 public class Plateau {
-    Emplacement[][] cartes;
-    int[] nbCartes;
-    Emplacement[] placesVides;
-    int nbPlacesVides;
-
-    public Plateau() {
+    // ATTRIBUTS
+    private Emplacement[][] cartes;
+    private int[] nbCartes;
+    private Emplacement[] placesVides;
+    private int nbPlacesVides;
+    
+    // CONSTRUCTEURS
+    public Plateau (){
+        Emplacement[][] cartes = new Emplacement[8][2];
+        int[] nbCartes = new int[2];
+        Emplacement[] placesVides = new Emplacement[16];
+        int nbPlacesvides = 16;  
+    }  
+    
+    // METHODES
+    private boolean poserCarte(int carte, Emplacement pos){
+        
+        if(pos == null){
+            
+        }
         
     }
     

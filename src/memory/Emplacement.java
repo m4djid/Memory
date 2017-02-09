@@ -6,6 +6,7 @@ package memory;
 
 /**
  *
+
  * @author gilles.wilhelm
  */
 public class Emplacement {
@@ -22,6 +23,9 @@ public class Emplacement {
             this.y = y;
         }
     }
+    
+    // GETTERS
+
 
     public int getX() {
         return x;
