@@ -63,6 +63,7 @@ public class Plateau {
             return false;
         } else {
             nbCartes[carte] = carte;
+            retirerPlaceVide(carte);
             cartes[pos.getX()][pos.getY()] = pos;
             return true;
         }
@@ -71,9 +72,14 @@ public class Plateau {
     }
 
     private boolean poserCarte(int carte, int x, int y) {
+        if (cartes[x][y] != null || nbCartes[carte] == carte) {
+            return false;
+        }
+        else {
 
+            return true;
+        }
 
-        return false;
     }
 
     /*
@@ -89,5 +95,37 @@ public class Plateau {
             }
         }
 
+    }
+
+    /*
+    * Méthode donnée avec l'énnoncé
+    */
+
+    public void affiche() {
+        char[][] plateau = new char[4][4];
+        for (int carte = 0; carte < 8; carte++) {
+            for (int i = 0; i < nbCartes[carte]; i++) {
+                Emplacement pos = cartes[carte][i];
+                plateau[pos.getX()][pos.getY()] = (char)('0'+carte);
+            }
+        }
+        for (int i = 0; i < nbPlacesVides; i++) {
+            Emplacement pos = placesVides[i];
+            plateau[pos.getX()][pos.getY()] = '.';
+        }
+        for (int y = 0; y < 4; y++) {
+            for (int x = 0; x < 4; x++) {
+                System.out.println();
+            }
+        }
+    }
+
+    public static void main (String[] args) {
+        Plateau p = new Plateau();
+
+        p.poserCarte(1,2,3);
+        p.poserCarte(3,0,1);
+        p.distribuer();
+        p.affiche();
     }
 }
