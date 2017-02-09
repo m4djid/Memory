@@ -6,23 +6,26 @@ package memory;
 
 /**
  *
- * @author pierre.vuckovic
+
+ * @author gilles.wilhelm
  */
 public class Emplacement {
-    // ATTRIBUTS
     private int x;
     private int y;
-    
-    // CONSTRUCTEURS
-    public Emplacement (int x, int y){
-        x = this.x;
-        y = this.y;
+
+    public Emplacement(int x, int y) {
+        if(( x >= 0) || (x <= 3))
+        {
+                 this.x = x;   
+        }
+        if(( y >= 0) || (y <= 3))
+        {
+            this.y = y;
+        }
     }
     
-    // METHODES
-    
-    
     // GETTERS
+
 
     public int getX() {
         return x;

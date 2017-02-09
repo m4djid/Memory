@@ -1,11 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package memory;
 
 /**
- *
  * @author pierre.vuckovic
  */
 public class Plateau {
@@ -32,5 +27,4 @@ public class Plateau {
         
     }
     
-    // GETTERS
 }

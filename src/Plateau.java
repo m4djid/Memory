@@ -39,9 +39,21 @@ public class Plateau {
             return retour;
         }
     }
-    
+  
+   private Emplacement choisirPlaceVide(int x, int y) {
+        Emplacement retour;
+        for(int i = 0; i <= nbPlacesVides; i++) {
+            if (placesVides[i] == cartes[x][y]) {
+                retour = cartes[x][y];
+                retirerPlaceVide(i);
+                return retour;
+            }
+        }
+        return null;
 
-    /* Pierre */
+    }
+  
+   /* Pierre */
     private boolean poserCarte(int carte, Emplacement pos) {
         
         if(pos == null){
@@ -66,16 +78,17 @@ public class Plateau {
     }
 
 
-    private Emplacement choisirPlaceVide(int x, int y) {
-        Emplacement retour;
-        for(int i = 0; i <= nbPlacesVides; i++) {
-            if (placesVides[i] == cartes[x][y]) {
-                retour = cartes[x][y];
-                retirerPlaceVide(i);
-                return retour;
+    public void distribuer()
+    {
+         for(int i=0;i<8;i++)
+        {
+            if (cartes[i] == null)
+            {
+                cartes[i][0]= choisirPlaceVide();
+                poserCarte(i, cartes[i][0]);
+                cartes[i][1]= choisirPlaceVide();
+                poserCarte(i, cartes[i][1]);
             }
-        }
-        return null;
-    }
+         }
 
 }
