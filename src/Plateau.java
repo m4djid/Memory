@@ -6,37 +6,52 @@ import java.util.Random;
 public class Plateau {
 
     // ATTRIBUTS
-    Emplacement[][] cartes;
-    int[] nbCartes;
-    Emplacement[] placesVides;
-    int nbPlacesVides;
+    private Emplacement[][] cartes;
+    private int[] nbCartes;
+    private Emplacement[] placesVides;
+    private int nbPlacesVides;
 
     // CONSTRUCTEURS
     public Plateau() {
         Emplacement[][] cartes = new Emplacement[8][2];
         int[] nbCartes = new int[8];
         Emplacement[] placesVides = new Emplacement[16];
-        int nbPlacesVides = 16;
+        int nbPlacesVides = 0;
+        // Correction
+        for (int y=0; y<4; y++){
+            for (int x = 0; y<4; x++){
+                placesVides[nbPlacesVides++] = new Emplacement(x,y);
+            }
+        }
     }
 
     // METHODES
     private void retirerPlaceVide(int i) {
-        placesVides[i] = null;
-        nbPlacesVides--;
+       /* placesVides[i] = null;
+        nbPlacesVides--;*/
+        // Correction
+        placesVides[i] = placesVides[--nbPlacesVides];
 
     }
 
     private Emplacement choisirPlaceVide() {
-        Random rnd = new Random();
+        // Correction
+       /* Random rnd = new Random();
         int a = rnd.nextInt(16);
-        Emplacement retour;
-        if (placesVides[a] == null) {
+        Emplacement retour;*/
+        //if (placesVides[a] == null) {
+        if (nbPlacesVides == 0) {
             return null;
-        } else {
+        } /*else {
             retour = placesVides[a];
             retirerPlaceVide(a);
             return retour;
-        }
+        }*/
+        Random rand = new Random();
+        int i = rand.nextInt(nbPlacesVides);
+        Emplacement pos = placesVides[i];
+        retirerPlaceVide(i);
+        return pos;
     }
     /*
     * Author : Paolo
@@ -61,24 +76,32 @@ public class Plateau {
 
         if (pos == null) {
             return false;
-        } else {
+        } /*else {
             nbCartes[carte] = carte;
             retirerPlaceVide(carte);
             cartes[pos.getX()][pos.getY()] = pos;
             return true;
-        }
+        }*/
+        cartes[carte][nbCartes[carte]] = pos;
+        nbCartes[carte]++;
+        return true;
 
 
     }
 
     private boolean poserCarte(int carte, int x, int y) {
-        if (cartes[x][y] != null || nbCartes[carte] == carte) {
+       /* if (cartes[x][y] != null || nbCartes[carte] == carte) {
             return false;
         }
         else {
 
             return true;
-        }
+        }*/
+       if (nbCartes[carte]>1) {
+           return false;
+       }
+       Emplacement pos = choisirPlaceVide(x,y);
+       return poserCarte(carte, pos);
 
     }
 
@@ -86,15 +109,22 @@ public class Plateau {
     * Author : Gilles
     */
     public void distribuer() {
-        for (int i = 0; i < 8; i++) {
+        /*for (int i = 0; i < 8; i++) {
             if (cartes[i] == null) {
                 cartes[i][0] = choisirPlaceVide();
                 poserCarte(i, cartes[i][0]);
                 cartes[i][1] = choisirPlaceVide();
                 poserCarte(i, cartes[i][1]);
             }
+        }*/
+        for (int carte = 0; carte < 8; carte++){
+            for (int n = nbCartes[carte]; n < 2; n++) {
+                Emplacement pos = choisirPlaceVide();
+                if (!poserCarte(carte,pos)){
+                    return;
+                }
+            }
         }
-
     }
 
     /*
