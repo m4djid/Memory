@@ -6,8 +6,8 @@
 public class Emplacement {
     
     // ATTRIBUTS
-    int x;
-    int y;
+    private int x;
+    private int y;
     
     // CONSTRUCTEURS
     public Emplacement(int x, int y) {
